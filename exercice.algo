@@ -1,0 +1,177 @@
+ALGORITHM validate_password
+VAR
+    password : STRING
+
+CONST
+    predefined_password : STRING := "1234"
+
+BEGIN
+    Write("Enter your password: ")
+    Read(password)
+
+    IF password = predefined_password THEN
+        Write("Access granted.")
+    ELSE
+        Write("Access denied.")
+    END_IF
+END
+.........
+ALGORITHM find_maximum_of_three
+VAR
+    num1, num2, num3, max : INTEGER
+
+BEGIN
+    Write("Enter the first number: ")
+    Read(num1)
+    Write("Enter the second number: ")
+    Read(num2)
+    Write("Enter the third number: ")
+    Read(num3)
+    max := num1
+
+    IF num2 > max THEN
+        max := num2
+    END_IF
+    IF num3 > max THEN
+        max := num3
+    END_IF
+
+    Write("The maximum number is: ", max)
+END
+.........
+ALGORITHM evaluate_temperature
+VAR
+    temperature : REAL
+
+BEGIN
+    Write("Enter the temperature in Celsius: ")
+    Read(temperature)
+
+    IF temperature < 10 THEN
+        Write("Froid")
+    ELSE_IF temperature >= 10 AND temperature <= 25 THEN
+        Write("Tempéré")
+    ELSE
+        Write("Chaud")
+    END_IF
+END
+..........
+ALGORITHM classify_triangle
+VAR
+    a, b, c : INTEGER
+
+BEGIN
+    Write("Enter the first side: ")
+    Read(a)
+    Write("Enter the second side: ")
+    Read(b)
+    Write("Enter the third side: ")
+    Read(c)
+
+    IF a = b AND b = c THEN
+        Write("Équilatéral")
+    ELSE_IF a = b OR b = c OR a = c THEN
+        Write("Isocèle")
+    ELSE
+        Write("Scalène")
+    END_IF
+END
+.........
+ALGORITHM check_multiple_of_five_switch
+VAR
+    num : INTEGER
+    is_multiple : INTEGER
+
+BEGIN
+    Write("Enter a number: ")
+    Read(num)
+
+    IF num % 5 = 0 THEN
+        is_multiple := 1
+    ELSE
+        is_multiple := 0
+    END_IF
+
+    SWITCH (is_multiple) DO
+        CASE 1 : Write("The number is a multiple of 5."); BREAK
+        CASE 0 : Write("The number is not a multiple of 5."); BREAK
+        DEFAULT : Write("Unknown case.")
+    END_SWITCH
+END
+
+........
+ALGORITHM check_leap_year
+VAR
+    year : INTEGER
+
+BEGIN
+    Write("Enter a year: ")
+    Read(year)
+
+    IF (year % 4 = 0 AND year % 100 <> 0) OR year % 400 = 0 THEN
+        Write("The year is a leap year.")
+    ELSE
+        Write("The year is not a leap year.")
+    END_IF
+END
+............
+ALGORITHM validate_date
+VAR
+    day, month, year : INTEGER
+
+BEGIN
+    Write("Enter the day: ")
+    Read(day)
+    Write("Enter the month: ")
+    Read(month)
+    Write("Enter the year: ")
+    Read(year)
+
+    IF month < 1 OR month > 12 THEN
+        Write("Invalid month.")
+    ELSE_IF day < 1 OR day > 31 THEN
+        Write("Invalid day.")
+    ELSE_IF (month = 4 OR month = 6 OR month = 9 OR month = 11) AND day > 30 THEN
+        Write("Invalid day for this month.")
+    ELSE_IF month = 2 AND day > 28 THEN
+        Write("Invalid day for February.")
+    ELSE
+        Write("The date is valid.")
+    END_IF
+END
+............
+ALGORITHM calculate_grade_with_penalty
+VAR
+    grade, final_grade : REAL
+
+BEGIN
+    Write("Enter the grade: ")
+    Read(grade)
+
+    IF grade < 5 THEN
+        final_grade := grade - (grade * 0.2)
+    ELSE
+        final_grade := grade
+    END_IF
+
+    Write("The final grade is: ", final_grade)
+END
+.........
+ALGORITHM check_loan_eligibility
+VAR
+    salary : REAL
+    age : INTEGER
+
+BEGIN
+    Write("Enter your salary: ")
+    Read(salary)
+    Write("Enter your age: ")
+    Read(age)
+
+    IF salary > 1500 AND age >= 18 AND age <= 65 THEN
+        Write("You are eligible for a loan.")
+    ELSE
+        Write("You are not eligible for a loan.")
+    END_IF
+END
+.............
