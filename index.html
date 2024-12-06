@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Axiome - Portfolio</title>
+  <title>Axiome - Root of Creation</title>
 
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -26,13 +26,22 @@
   <!-- Custom JavaScript -->
   <script defer src="scripts/app.js"></script>
 </head>
-<body class="bg-white text-gray-900 font-sans">
+<body class="relative text-gray-900 font-sans">
+  <!-- Global Video Background -->
+  <div class="absolute inset-0 z-0">
+    <video autoplay muted loop class="w-full h-full object-cover">
+      <source src="./assets/images/tree-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+  </div>
+
   <!-- Navbar -->
-  <header id="navbar" class="sticky top-0 z-50 bg-white shadow-md">
+  <header id="navbar" class="sticky top-0 z-50 bg-transparent">
     <div class="container mx-auto flex justify-between items-center p-4">
-      <h1 class="text-2xl font-bold text-gray-800">Axiome</h1>
+      <h1 class="text-2xl font-bold text-white">Axiome</h1>
       <nav>
-        <ul class="flex space-x-6 text-gray-700">
+        <ul class="flex space-x-6 text-gray-300">
           <li><a href="#about" class="hover:text-blue-500">About</a></li>
           <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
           <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
@@ -46,51 +55,85 @@
   </header>
 
  <!-- Hero Section -->
-<section id="hero" class="h-screen relative flex flex-col items-center justify-center text-center">
+ <section id="hero" class="h-screen relative flex flex-col items-center justify-center text-center">
   <canvas id="heroCanvas" class="absolute inset-0 z-0"></canvas>
   <div class="relative z-10">
-    <h1 class="text-5xl font-extrabold text-gray-800">Freelance Web Designer & Problem Solver</h1>
-    <p class="mt-4 text-xl text-gray-600">Creating elegant solutions for modern challenges.</p>
+    <h1 class="text-5xl font-extrabold text-white">Freelance Web Designer & Problem Solver</h1>
+    <p class="mt-4 text-xl text-gray-200">Creating elegant solutions for modern challenges.</p>
     <a href="#projects" class="mt-6 bg-blue-500 text-white px-6 py-3 rounded-md shadow hover:bg-blue-600">
       Explore My Work
     </a>
   </div>
 </section>
 
-<!-- SVG Background Section -->
-<section id="svg-background" class="h-96 relative">
-  <!-- <div class="absolute inset-0 z-0">
-  </div> -->
-</section>
+ <!-- Root of Creation Section -->
+ <section id="root-of-creation" class="relative h-screen text-center flex items-center justify-center">
+  <div class="relative z-10">
+    <h2 class="text-5xl font-extrabold text-white">The Root of Creation</h2>
+    <p class="mt-4 text-xl text-gray-300">
+      Every great creation starts with an idea. Drop yours here and watch it grow into something incredible.
+    </p>
+    <button id="drop-idea-btn" class="mt-6 bg-green-500 text-white px-6 py-3 rounded-md shadow hover:bg-green-600">
+      Drop Your Idea
+    </button>
+  </div>
+
+<!-- Modal Section -->
+<div id="idea-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full relative">
+    <h3 class="text-2xl font-bold mb-4">Share Your Idea</h3>
+    <form id="idea-form">
+      <div class="mb-4">
+        <label for="name" class="block text-gray-600 mb-2">Your Name</label>
+        <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your name" required>
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block text-gray-600 mb-2">Your Email</label>
+        <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-4">
+        <label for="idea" class="block text-gray-600 mb-2">Your Idea</label>
+        <textarea id="idea" class="w-full p-3 border border-gray-300 rounded-lg" rows="4" placeholder="Describe your idea..." required></textarea>
+      </div>
+      <button type="submit" class="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition">
+        Submit Idea
+      </button>
+    </form>
+    <button id="close-modal" class="absolute top-2 right-2 text-gray-400 hover:text-black text-2xl">&times;</button>
+  </div>
+</div>
 
   
-  <!-- About Me Section -->
-  <section id="about" class="py-16 bg-gray-50">
-    <div class="container mx-auto flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-10">
-      <img src="assets/images/your-profile.jpg" alt="Hamdi" class="w-1/2 rounded-lg shadow-md">
-      <div>
-        <h2 class="text-3xl font-bold text-gray-800">About Me</h2>
-        <p class="mt-4 text-gray-600">
-          Hi, I'm Hamdi! A passionate web developer combining creativity with problem-solving.
-          I'm transitioning into web development to create seamless, interactive digital experiences.
-          Let's build something extraordinary together!
-        </p>
-        <a href="assets/Hamdi-resume.pdf" target="_blank" class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-md shadow hover:bg-blue-600">
-          Download Resume
-        </a>
-      </div>
+</section>
+  
+<!-- About Me Section -->
+<section id="about" class="relative py-16 text-gray-800">
+
+  <div class="container mx-auto relative z-10 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-10">
+    <img src="assets/images/your-profile.jpg" alt="Hamdi" class="w-1/2 rounded-lg shadow-md">
+    <div>
+      <h2 class="text-3xl font-bold">About Me</h2>
+      <p class="mt-4 text-gray-100">
+        Hi! I'm Hamdi Ben Jarrar, a passionate developer skilled in web development and interactive design.
+        I'm transitioning into web development to create seamless, interactive digital experiences.
+        I love crafting engaging user experiences with modern technologies.
+      </p>
+      <a href="assets/Hamdi-resume.pdf" target="_blank" class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-md shadow hover:bg-blue-600">
+        Download Resume
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-16 bg-white">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold text-gray-800">My Projects</h2>
+  <section id="projects" class="relative py-16 text-center text-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold">My Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
           <img src="assets/images/project1.jpg" alt="Project 1" class="rounded-md">
-          <h3 class="mt-4 text-lg font-semibold text-gray-800">Project One</h3>
-          <p class="mt-2 text-gray-600">A short description of Project One.</p>
+          <h3 class="mt-4 text-lg font-semibold">Project One</h3>
+          <p class="mt-2">A short description of Project One.</p>
           <a href="https://github.com/hamdibenjarrar" target="_blank" class="mt-4 inline-block text-blue-500 hover:text-blue-700">
             View on GitHub <i class="fab fa-github"></i>
           </a>
@@ -101,32 +144,107 @@
   </section>
 
   <!-- Inspirations Section -->
-  <section id="inspirations" class="py-16 bg-gray-50">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold text-gray-800">Inspirations</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
-        <!-- Dynamic images from "psychedelicthinker" will go here -->
+  <section id="inspirations" class="relative py-16 text-center text-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold">Inspirations</h2>
+      <p class="mt-4 text-gray-300 italic">
+        "To the artist, art is a verb." - David Bayles
+      </p>
+      <div class="carousel-container relative overflow-hidden mt-8">
+        <div class="carousel flex gap-4 transition-transform duration-500">
+          <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+            <div class="inspiration-box">
+              <img src="./assets/images/totheartist.jpg" alt="To the artist, art is a verb" class="rounded-lg shadow">
+              <p class="mt-2 text-gray-700">A reminder that creativity is an action, always evolving.</p>
+            </div>
+          </div>
+          <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+            <div class="inspiration-box">
+              <img src="./assets/images/inspiration1.jpg" alt="Inspiration 1" class="rounded-lg shadow">
+              <p class="mt-2 text-gray-700">An abstract representation of unity in design.</p>
+            </div>
+          </div>
+          <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+            <div class="inspiration-box">
+              <img src="./assets/images/inspiration2.jpg" alt="Inspiration 2" class="rounded-lg shadow">
+              <p class="mt-2 text-gray-700">A harmony of colors and geometry.</p>
+            </div>
+          </div>
+          <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+            <div class="inspiration-box">
+              <img src="./assets/images/inspiration3.jpg" alt="Inspiration 3" class="rounded-lg shadow">
+              <p class="mt-2 text-gray-700">Nature-inspired fluid forms and patterns.</p>
+            </div>
+          </div>
+          <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+            <div class="inspiration-box">
+              <img src="./assets/images/inspiration4.jpg" alt="Inspiration 4" class="rounded-lg shadow">
+              <p class="mt-2 text-gray-700">A fusion of modern and traditional art styles.</p>
+            </div>
+          </div>
+          <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+            <div class="inspiration-box">
+              <img src="./assets/images/inspiration5.jpg" alt="Inspiration 5" class="rounded-lg shadow">
+              <p class="mt-2 text-gray-700">A minimalist take on universal themes.</p>
+            </div>
+          </div>
+        </div>
+        <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 rounded-md">‹</button>
+      <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 rounded-md">›</button>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-gray-100">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold text-gray-800">Contact Me</h2>
-      <form class="mt-6 max-w-lg mx-auto flex flex-col space-y-4">
-        <input type="text" name="name" placeholder="Your Name" class="px-4 py-3 border rounded-md focus:outline-none focus:ring focus:ring-blue-300">
-        <input type="email" name="email" placeholder="Your Email" class="px-4 py-3 border rounded-md focus:outline-none focus:ring focus:ring-blue-300">
-        <textarea name="message" placeholder="Your Message" rows="5" class="px-4 py-3 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"></textarea>
-        <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-md shadow hover:bg-blue-600">
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="relative py-16 text-center text-white">
+ 
+  <!-- Contact Content -->
+  <div class="relative z-10 container mx-auto flex flex-wrap md:flex-nowrap items-center">
+    <!-- Description Section -->
+    <div class="w-full md:w-1/2 p-6">
+      <h2 class="text-4xl font-bold mb-4">Get in Touch</h2>
+      <p class="text-lg mb-6">
+        Whether you have a project in mind, questions, or collaboration opportunities, feel free to reach out. Let's create something extraordinary together!
+      </p>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="w-full md:w-1/2 p-6 bg-gray-800 bg-opacity-90 rounded-lg shadow-lg">
+      <form class="space-y-4">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          class="w-full px-4 py-3 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          class="w-full px-4 py-3 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          rows="5"
+          class="w-full px-4 py-3 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        ></textarea>
+        <button
+          type="submit"
+          class="w-full bg-blue-500 text-white px-6 py-3 rounded-md shadow hover:bg-blue-600"
+        >
           Send Message
         </button>
       </form>
     </div>
-  </section>
-
+  </div>
+</section>
   <!-- Footer -->
-  <footer id="footer" class="bg-gray-800 text-white py-6">
+  <footer id="footer" class="bg-gray-800 py-6 text-center text-gray-300">
     <div class="container mx-auto flex justify-between items-center">
       <p>&copy; 2024 Hamdi. All Rights Reserved.</p>
       <div class="flex space-x-4">
@@ -136,8 +254,6 @@
       </div>
     </div>
   </footer>
-  
-  <script src="./scripts/app.js" defer></script>
-  
+  <script src="./scripts/app.js"></script>
 </body>
 </html>

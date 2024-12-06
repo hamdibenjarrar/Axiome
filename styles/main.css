@@ -964,19 +964,222 @@ video {
   }
 }
 
-#svg-background {
+
+/* Inspirations Section */
+.carousel-container {
   position: relative;
   width: 100%;
-  height: 24rem; /* Adjust the height as needed */
+  max-width: 1200px;
+  margin: 0 auto;
   overflow: hidden;
-  background-image: url("../assets/images/abstract-background.webp");
-  background-size: cover;
 }
 
-/* #svg-background img {
+.carousel {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.inspiration-box {
+  text-align: center;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.inspiration-box img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.inspiration-box img:hover {
+  transform: scale(1.05);
+}
+
+.carousel-item p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+#prevBtn,
+#nextBtn {
+  z-index: 10;
+  cursor: pointer;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+  background-color: #4b5563;
+}
+/* Asymmetric Background */
+section.relative {
+  position: relative;
+  overflow: hidden;
+}
+
+section.relative .absolute {
   position: absolute;
+}
+
+section.relative .bg-opacity-40 {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure responsive scaling for images */
+img.object-cover {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/* Add padding for better spacing */
+section.relative .container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Ensure text contrast over background */
+section.relative h2,
+section.relative p {
+  color: white;
+}
+
+
+
+
+/* Contact Section Styling */
+#contact {
+  position: relative;
+  padding: 4rem 1rem;
+}
+
+#contact .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Background Image */
+#contact img {
+  object-fit: cover;
+  filter: brightness(0.7); /* Darken the background for better contrast */
+}
+
+/* Description Section */
+#contact h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+#contact p {
+  color: #d1d1d1;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Form Section */
+#contact form {
+  background: rgba(31, 41, 55, 0.9); /* Semi-transparent background */
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+#contact form input,
+#contact form textarea {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1rem;
+}
+
+#contact form input:focus,
+#contact form textarea:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+#contact form button {
+  background-color: #3b82f6;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+#contact form button:hover {
+  background-color: #2563eb;
+}
+
+
+
+.hidden {
+  display: none !important;
+}
+
+/* Global Video Background */
+body {
+  position: relative;
+  overflow-x: hidden;
+  color: white;
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   z-index: -1;
-} */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Section Styling */
+section {
+  position: relative;
+  padding: 4rem 1rem;
+  z-index: 10;
+}
+
+h1, h2, p {
+  z-index: 10;
+}
+
+/* Navbar Styling */
+#navbar {
+  background-color: transparent;
+}
+
+#navbar h1, #navbar a {
+  color: white;
+}
+
+#navbar a:hover {
+  color: #3b82f6;
+}
+
+/* Footer */
+#footer {
+  background-color: #1f2937;
+}
+

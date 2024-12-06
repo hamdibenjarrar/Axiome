@@ -1,43 +1,38 @@
+// DOM Elements
+const ideaModal = document.getElementById("idea-modal");
+const dropIdeaBtn = document.getElementById("drop-idea-btn");
+const closeModal = document.getElementById("close-modal");
 
-gsap.to("#svg-background img", {
-  scale: 1.05,
-  duration: 6,
-  ease: "power1.inOut",
-  repeat: -1,
-  yoyo: true,
+// Ensure modal is hidden on page load
+window.addEventListener("DOMContentLoaded", () => {
+  if (!ideaModal.classList.contains("hidden")) {
+    ideaModal.classList.add("hidden");
+  }
+  console.log("Modal initialized and hidden on load");
 });
 
-// GSAP Animations
-gsap.registerPlugin(ScrollTrigger);
-
-// Hero Section Animation
-gsap.from("#hero h1", { duration: 1.5, opacity: 0, y: -50, ease: "power2.out" });
-gsap.from("#hero p", { duration: 2, opacity: 0, y: 50, delay: 0.5, ease: "power2.out" });
-gsap.from("#hero a", { duration: 2.5, opacity: 0, scale: 0.8, delay: 1, ease: "power2.out" });
-
-// About Section
-gsap.from("#about img", {
-  scrollTrigger: {
-    trigger: "#about",
-    start: "top 80%",
-    toggleActions: "play none none none",
-  },
-  x: -100,
-  opacity: 0,
-  duration: 1,
+// Open modal when "Drop Your Idea" button is clicked
+dropIdeaBtn.addEventListener("click", () => {
+  ideaModal.classList.remove("hidden");
+  console.log("Modal opened");
 });
 
-gsap.from("#about h2, #about p, #about a", {
-  scrollTrigger: {
-    trigger: "#about",
-    start: "top 80%",
-    toggleActions: "play none none none",
-  },
-  y: 50,
-  opacity: 0,
-  duration: 1,
-  stagger: 0.3,
+// Close modal when "X" button is clicked
+closeModal.addEventListener("click", () => {
+  ideaModal.classList.add("hidden");
+  console.log("Modal closed");
 });
+
+// Close modal when clicking outside the modal content
+ideaModal.addEventListener("click", (event) => {
+  if (event.target === ideaModal) {
+    ideaModal.classList.add("hidden");
+    console.log("Modal closed by clicking outside");
+  }
+});
+
+
+
 
 // Projects Section Animation
 gsap.from("#projects .project-card", {
@@ -53,17 +48,33 @@ gsap.from("#projects .project-card", {
 });
 
 // Inspirations Section
-gsap.from("#inspirations .grid-image", {
-  scrollTrigger: {
-    trigger: "#inspirations",
-    start: "top 80%",
-    toggleActions: "play none none none",
-  },
-  opacity: 0,
-  y: 50,
-  duration: 1,
-  stagger: 0.2,
+const carousel = document.querySelector('.carousel');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+  const itemWidth = carousel.querySelector('.carousel-item').offsetWidth;
+  carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+}
+
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCarousel();
+  }
 });
+
+nextBtn.addEventListener('click', () => {
+  if (currentIndex < carousel.children.length - 1) {
+    currentIndex++;
+    updateCarousel();
+  }
+});
+
+window.addEventListener('resize', updateCarousel);
+
 
 // Footer Social Icons
 gsap.from("footer .flex a", {
@@ -113,4 +124,5 @@ window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 });
+
 
