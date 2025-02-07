@@ -14,6 +14,6 @@
   "author": "Hamdi",
   "license": "ISC",
   "dependencies": {
-    "three": "^0.171.0"
+    "three": "^0.172.0"
   }
 }
